@@ -8,6 +8,7 @@ resource "aws_security_group" "alb" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes = [ingress, egress]
   }
 }
 
@@ -39,6 +40,7 @@ resource "aws_security_group" "app" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes = [ingress, egress]
   }
 }
 
