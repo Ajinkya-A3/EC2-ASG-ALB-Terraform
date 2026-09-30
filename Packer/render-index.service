@@ -1,0 +1,13 @@
+[Unit]
+Description=Render instance metadata into index.html
+Before=nginx.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/app/render-index.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
