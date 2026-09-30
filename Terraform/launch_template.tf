@@ -26,9 +26,6 @@ resource "aws_launch_template" "app" {
     }
   }
 
-  user_data = base64encode(templatefile("${path.module}/user_data.sh.tpl", {
-    app_port = var.app_port
-  }))
 
   tag_specifications {
     resource_type = "instance"
